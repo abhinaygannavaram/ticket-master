@@ -11,7 +11,6 @@ ticketController.list = (req, res) => {
       res.json(err);
     });
 };
-
 ticketController.create = (req, res) => {
   const body = req.body;
   const ticket = new Ticket(body)
