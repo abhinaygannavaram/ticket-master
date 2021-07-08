@@ -15,6 +15,7 @@ ticketController.list = (req, res) => {
 ticketController.create = (req, res) => {
   const body = req.body;
   const ticket = new Ticket(body)
+  ticket.save()
     .then((response) => {
       res.json(response);
     })
@@ -58,6 +59,7 @@ ticketController.update = (req, res) => {
 };
 
 ticketController.destroy = (req, res) => {
+  const id = req.params.id
   Ticket.findByIdAndDelete(id)
     .then((response) => {
       if (response) {

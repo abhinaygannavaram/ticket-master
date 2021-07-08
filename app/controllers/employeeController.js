@@ -1,19 +1,18 @@
 const express = require("express");
 const Employee = require("../models/employee");
+const mongoose = require("mongoose");
 
 const employeeController = {};
 
 employeeController.list = (req, res) => {
-  Employee.find()
-    .populate("department")
-    .then((response) => {
-      res.json(response);
+  Employee.find().populate("department")
+    .then((employees) => {
+      res.json(employees);
     })
     .catch((err) => {
       res.json(err);
     });
 };
-
 employeeController.create = (req, res) => {
   const body = req.body;
   const employee = new Employee(body);
@@ -23,7 +22,7 @@ employeeController.create = (req, res) => {
       res.json(response);
     })
     .catch((err) => {
-      res.json(err);
+      res.json(err.message);
     });
 };
 

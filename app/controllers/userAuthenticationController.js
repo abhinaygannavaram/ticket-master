@@ -12,7 +12,6 @@ module.exports.register = (req, res) => {
       res.json(err);
     });
 };
-
 module.exports.login = (req, res) => {
   const body = req.body;
   User.findByCredentials(body.email, body.password)
@@ -26,7 +25,6 @@ module.exports.login = (req, res) => {
       res.json(err);
     });
 };
-
 module.exports.logout = (req, res) => {
   const { user, token } = req;
   User.findByIdAndUpdate(user._id, { $pull: { tokens: { token: token } } })

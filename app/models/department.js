@@ -8,7 +8,5 @@ const departmentSchema = new Schema({
     unique: true,
   },
 });
-
 const Department = mongoose.model("Department", departmentSchema);
-
 module.exports = Department;

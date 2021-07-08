@@ -22,21 +22,17 @@ router.get("/customers/:id", authenticateUser, customerController.show);
 router.put("/customers/:id", authenticateUser, customerController.update);
 router.delete("/customers/:id", authenticateUser, customerController.destroy);
 
-router.get("/department", authenticateUser, departmentController.list);
-router.post("/department", authenticateUser, departmentController.create);
-router.get("/department/:id", authenticateUser, departmentController.show);
-router.put("/department/:id", authenticateUser, departmentController.update);
-router.delete(
-  "/department/:id",
-  authenticateUser,
-  departmentController.destroy
-);
+router.get("/department", departmentController.list);
+router.post("/department", departmentController.create);
+router.get("/department/:id", departmentController.show);
+router.put("/department/:id", departmentController.update);
+router.delete("/department/:id", departmentController.destroy);
 
-router.get("/employee", authenticateUser, employeeController.list);
-router.post("/employee", authenticateUser, employeeController.create);
-router.get("/employee/:id", authenticateUser, employeeController.show);
-router.put("/employee/:id", authenticateUser, employeeController.update);
-router.delete("/employee/:id", authenticateUser, employeeController.destroy);
+router.get("/employee", employeeController.list);
+router.post("/employee", employeeController.create);
+router.get("/employee/:id", employeeController.show);
+router.put("/employee/:id", employeeController.update);
+router.delete("/employee/:id", employeeController.destroy);
 
 router.get("/tickets", authenticateUser, ticketController.list);
 router.post("/tickets", authenticateUser, ticketController.create);
